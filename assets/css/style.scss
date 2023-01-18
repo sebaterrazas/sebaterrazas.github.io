@@ -1,0 +1,190 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+    background-color: lightsteelblue;
+    color: rgb(69,69,69);
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 1em;
+    /* font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0; */
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    color: midnightblue !important;
+}
+
+.logo {
+    border-radius: 10px;
+}
+
+.fa {
+    margin: 20px;
+    color: gray;
+}
+
+.fa:hover {
+    color: black;
+}
+
+.typed-cursor {
+    color: white;
+}
+
+.index {
+    margin: auto;
+    width: 50%;
+    font-weight: bold;
+}
+
+.index .tablinks {
+    text-align: center;
+    margin-bottom: -25px;
+    color: black;
+}
+
+.index .tablinks:hover {
+    font-size: 110%;
+    cursor: pointer;
+    background-color: rgb(206,226,252);
+    border-radius: 10px;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Don't be afraid of this, it's just an array with keys values to keep configuration easier ;) */
+$configs: (
+	chart-one: (
+		svgSize: 200px,
+		percentage: 25,
+		strokeWidth: 1px,
+		backgroundColor: #305556,
+		foregroundColor: #79be9b,
+		labelColor: #c6e8d7,
+		labelFontSize: 2.5rem,
+		duration: 3s,
+		animationDelay: 1s
+	),
+	chart-two: (
+		svgSize: 200px,
+		percentage: 50,
+		strokeWidth: 15px,
+		backgroundColor: #305556,
+		foregroundColor: #d0f09e,
+		labelColor: #c6e8d7,
+		labelFontSize: 2.5rem,
+		duration: 3s,
+		animationDelay: 1s
+	),
+	chart-three: (
+		svgSize: 80px,
+		percentage: 75,
+		strokeWidth: 10px,
+		backgroundColor: #305556,
+		foregroundColor: #389967,
+		labelColor: #305556,
+		labelFontSize: 1.5rem,
+		duration: 3s,
+		animationDelay: 1s
+	)
+);
+
+
+/* ------- DO NOT EDIT BELOW --------- */
+$pi: 3.14;
+$labelData: '';
+@for $i from 0 to 101 {
+	$labelData: $labelData + $i + '%' + '\a';
+}
+
+@each $chart, $param in $configs {
+	
+	$c: (map-get($param, svgSize) - map-get($param, strokeWidth)) * $pi;
+	$cOffSet: (map-get($param, percentage)/100)*$c;
+	
+	.#{$chart} {
+		width: map-get($param, svgSize);
+		height: map-get($param, svgSize);
+		margin: 0;
+		position: relative;
+		
+		&.animate {
+			svg .circle-foreground {
+				animation: offset map-get($param, duration) ease-in-out forwards;
+				animation-delay: map-get($param, animationDelay);
+			}
+			figcaption:after {
+				animation: #{$chart}-label map-get($param, duration) steps(map-get($param, percentage)) forwards;
+				animation-delay: map-get($param, animationDelay);
+			}
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+			.circle-background {
+				r: (map-get($param, svgSize) - map-get($param, strokeWidth))/2;
+				cx: 50%;
+				cy: 50%;
+				fill: none;
+				stroke: map-get($param, backgroundColor);
+				stroke-width: map-get($param, strokeWidth);
+			}
+			.circle-foreground {
+				@extend .circle-background;
+				stroke: map-get($param, foregroundColor);
+				stroke-dasharray: $cOffSet $c;
+				stroke-dashoffset: $cOffSet;
+				stroke-linecap: round;
+				transform-origin: 50% 50%;
+				transform: rotate(-90deg);
+			}
+		}
+		figcaption {
+			display: inline-block;
+			width: 100%;
+			height: map-get($param, labelFontSize);
+			overflow: hidden;
+			text-align: center;
+			color: map-get($param, labelColor);
+			position: absolute;
+			top: calc(50% - #{map-get($param, labelFontSize)/2});
+			left: 0;
+			font-size: 0;
+			&:after {
+				display: inline-block;
+				content: $labelData;
+				white-space: pre;
+				font-size: map-get($param, labelFontSize);
+				line-height: map-get($param, labelFontSize);
+			}
+		}
+	}
+	@keyframes #{$chart}-label {
+		100% {
+			transform: translateY(map-get($param, labelFontSize) * (-(map-get($param, percentage))));
+		}
+	}
+}
+@keyframes offset {
+	100% {
+		stroke-dashoffset: 0;
+	}
+}

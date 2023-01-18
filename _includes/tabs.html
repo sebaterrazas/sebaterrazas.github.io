@@ -1,0 +1,19 @@
+
+
+<!-- Tab links -->
+<div class="tab">
+    {% for tab in site.tabs %}
+        <button class="tablinks" id="{{ tab.title }} Button" onclick="openTab(event, '{{ tab.title }}')">{{ tab.title }}</button>
+    {% endfor %}
+</div>
+
+<!-- Tab content -->
+{% for tab in site.tabs %}
+<div id="{{ tab.title }}" class="tabcontent">
+    {% include tabs/{{ tab.html }} %}
+</div>
+{% endfor %}
+
+<script src="assets/js/openTab.js"></script>
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    {% include head-custom.html %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{ site.favicon}}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <!-- <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1> -->
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="Logo" class="logo"/>
+        {% endif %}
+
+        <p>{{ site.current_job_and_study | default: site.github.project_tagline }}</p>
+        <!-- Tab links -->
+        <div class="index">
+          {% for tab in site.tabs %}
+            <div class="tablinks" id="{{ tab.title }} Button" onclick="openTab(event, '{{ tab.title }}')">{{ tab.title }}</div><br>
+          {% endfor %}
+        </div>
+
+        <!-- <p>{{ site.about_me | default: site.github.project_tagline }}</p>
+
+        <figure class="chart-three animate">
+          <svg role="img" xmlns="http://www.w3.org/2000/svg">
+            <title>[title here]</title>
+            <desc>[long description here]</desc>
+            <circle class="circle-background"/>
+            <circle class="circle-foreground"/>
+          </svg>
+          <figcaption>75% of all males like donuts.</figcaption>
+        </figure> -->
+
+        {% if site.show_downloads %}
+        <ul class="downloads">
+          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
+          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+        </ul>
+        {% endif %}
+      </header>
+      <section>
+
+      {{ content }}
+
+      </section>
+      <footer>
+        <a href="{{ site.github.owner_url }}"><i class="fa fa-github fa-2x"></i></a>
+        <a href="http://www.instagram.com/{{ site.instagram_username }}"><i class="fa fa-instagram fa-2x"></i></a>
+        <a href="mailto:{{ site.email }}"><i class="fa fa-envelope fa-2x"></i></a>
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+</html>
