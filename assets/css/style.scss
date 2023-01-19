@@ -3,8 +3,16 @@
 
 @import "{{ site.theme }}";
 
+:root {
+    --primary-color: lightsteelblue;
+    --secondary-color: midnightblue;
+    --tertiary-color: rgb(206,226,252);
+    --white: #ffffff;
+    --title-color: black;
+  }
+
 body {
-    background-color: lightsteelblue;
+    background-color: var(--primary-color);
     color: rgb(69,69,69);
     font-family: 'Roboto', sans-serif !important;
     font-size: 1em;
@@ -19,8 +27,12 @@ footer {
     justify-content: center;
 }
 
+h1, h2, h3, h4, h5 {
+    color: var(--title-color);
+}
+
 a {
-    color: midnightblue !important;
+    color: var(--secondary-color) !important;
 }
 
 .logo {
@@ -36,6 +48,11 @@ a {
     color: black;
 }
 
+.prettyprint {
+    font-size: 0.8em;
+    height: 140px;
+}
+
 .typed-cursor {
     color: white;
 }
@@ -49,14 +66,42 @@ a {
 .index .tablinks {
     text-align: center;
     margin-bottom: -25px;
-    color: black;
+    color: var(--title-color);
 }
 
 .index .tablinks:hover {
     font-size: 110%;
     cursor: pointer;
-    background-color: rgb(206,226,252);
+    background-color: var(--tertiary-color);
     border-radius: 10px;
+}
+
+.index .tablinks.active {
+    color: var(--tertiary-color);
+    text-shadow: 1px 1px 0 var(--title-color),
+    -1px 1px 0 var(--title-color),
+    1px -1px 0 var(--title-color),
+    -1px -1px 0 var(--title-color),
+    0px 1px 0 var(--title-color),
+    0px -1px 0 var(--title-color),
+    -1px 0px 0 var(--title-color),
+    1px 0px 0 var(--title-color),
+    2px 2px 0 var(--title-color),
+    -2px 2px 0 var(--title-color),
+    2px -2px 0 var(--title-color),
+    -2px -2px 0 var(--title-color),
+    0px 2px 0 var(--title-color),
+    0px -2px 0 var(--title-color),
+    -2px 0px 0 var(--title-color),
+    2px 0px 0 var(--title-color),
+    1px 2px 0 var(--title-color),
+    -1px 2px 0 var(--title-color),
+    1px -2px 0 var(--title-color),
+    -1px -2px 0 var(--title-color),
+    2px 1px 0 var(--title-color),
+    -2px 1px 0 var(--title-color),
+    2px -1px 0 var(--title-color),
+    -2px -1px 0 var(--title-color);
 }
 
 .tabcontent {
