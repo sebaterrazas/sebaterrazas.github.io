@@ -9,11 +9,12 @@
     --tertiary-color: rgb(206,226,252);
     --white: #ffffff;
     --title-color: black;
+    --text-color: rgb(69,69,69);
   }
 
 body {
     background-color: var(--primary-color);
-    color: rgb(69,69,69);
+    color: var(--text-color);
     font-family: 'Roboto', sans-serif !important;
     font-size: 1em;
     /* font-weight: 300;
