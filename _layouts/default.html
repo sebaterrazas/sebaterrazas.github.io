@@ -24,7 +24,7 @@
           <img src="{{site.logo | relative_url}}" alt="Logo" class="logo"/>
         {% endif %}
 
-        <p>{{ site.current_job_and_study | default: site.github.project_tagline }}</p>
+        {{ site.current_job_and_study | default: site.github.project_tagline }}
         <!-- Tab links -->
         <div class="index">
           {% for tab in site.tabs %}
@@ -61,7 +61,7 @@
         <a href="{{ site.github.owner_url }}"><i class="fa fa-github fa-2x"></i></a>
         <a href="https://www.instagram.com/{{ site.instagram_username }}"><i class="fa fa-instagram fa-2x"></i></a>
         <a href="mailto:{{ site.email }}"><i class="fa fa-envelope fa-2x"></i></a>
-        <a href="https://www.linkedin.com/in/sebasti%C3%A1n-terrazas-608606200/"> <i class="fa fa-linkedin-square fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/seba-terrazas/"> <i class="fa fa-linkedin-square fa-2x"></i></a>
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
