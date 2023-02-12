@@ -1,10 +1,11 @@
 <h1>About Me</h1>
 
-<h2>Who am I?</h2>
+<h3>Who am I?</h3>
 <p>As a Brazilian 🇧🇷 born, Chilean 🇨🇱 raised individual, I have always been drawn to challenges and using my skills for problem-solving. This is likely why I have always had a passion for the field of engineering and computer science.</p>
 <p>My hobbies are watching/playing football ⚽️ and video games 🎮, and coding 💻. I also enjoy reading books 📚, having read some classics like the Harry Potter series, some Jules Verne classics, and A Game of Thrones.</p> 
 
 <h2>My Skills</h2>
+<!--
 <b>Languages</b>
 <p>Python – JavaScript – C – SQL – HTML – CSS – R – Ruby – LaTeX – ASP – English – Spanish</p>
 
@@ -12,5 +13,341 @@
 <p>Ruby on Rails – Angular – PHP – WordPress – Django – AWS – Azure – Clingo </p>
 
 <b>Machine Learning</b>
-<p>OpenAI – BLOOM – Fine-tune – TensorFlow – PyTorch – Scikit Learn – Transformers</p>
+<p>OpenAI – BLOOM – Fine-tune – TensorFlow – PyTorch – Scikit Learn – Transformers</p> -->
 
+
+<div class="skills">
+  <div class="skill-group">
+    <h3>Languages</h3>
+    <ul>
+      <li>Python</li>
+      <li>JavaScript</li>
+      <li>C</li>
+      <li>SQL</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>R</li>
+      <li>Ruby</li>
+      <li>LaTeX</li>
+      <li>ASP</li>
+      <!-- <li>English</li>
+      <li>Spanish</li> -->
+    </ul>
+  </div>
+  <div class="skill-group">
+    <h3>Technologies</h3>
+    <ul>
+      <li>Ruby on Rails</li>
+      <li>Angular</li>
+      <li>PHP</li>
+      <li>WordPress</li>
+      <li>Django</li>
+      <li>AWS</li>
+      <li>Azure</li>
+      <li>Clingo</li>
+    </ul>
+  </div>
+  <div class="skill-group">
+    <h3>Machine Learning</h3>
+    <ul style="display: block;">
+      <li>OpenAI</li>
+      <li>BLOOM</li>
+      <li>Fine-tune</li>
+      <li>TensorFlow</li>
+      <li>PyTorch</li>
+      <li>Scikit Learn</li>
+      <li>Transformers</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .skill-group {
+      width: 30%;
+      text-align: left;
+    }
+  
+    .skills h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .skills ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  
+    .skills li {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+</style>
+  
+<!-- <script>
+    function toggleSkills() {
+      let skills = document.querySelector(".skills");
+      skills.classList.toggle("skills-expanded");
+    }
+  
+    let button = document.createElement("button");
+    button.innerHTML = "Toggle Skills";
+    button.addEventListener("click", toggleSkills);
+    document.querySelector("h2").appendChild(button);
+</script> -->
+
+
+<!-- <div class="skills">
+  <div class="skill-group">
+    <h3>Languages</h3>
+    <canvas id="language-chart"></canvas>
+  </div>
+  <div class="skill-group">
+    <h3>Technologies</h3>
+    <canvas id="technology-chart"></canvas>
+  </div>
+  <div class="skill-group">
+    <h3>Machine Learning</h3>
+    <canvas id="ml-chart"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+const languageData = {
+    labels: ["Python", "JavaScript", "C"],
+    datasets: [
+      {
+        data: [90, 80, 70],
+        backgroundColor: [
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 206, 86, 0.2)"
+        ],
+        borderColor: [
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(255, 206, 86, 1)"
+        ],
+        borderWidth: 1
+      }
+    ]
+  };
+
+const technologyData = {
+    labels: ["Ruby on Rails", "Angular", "PHP"],
+    datasets: [
+      {
+        data: [70, 60, 80],
+        backgroundColor: [
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 206, 86, 0.2)"
+        ],
+        borderColor: [
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(255, 206, 86, 1)"
+        ],
+        borderWidth: 1
+      }
+    ]
+  };
+
+const mlData = {
+    labels: ["OpenAI", "BLOOM", "Fine-tune"],
+    datasets: [
+      {
+        data: [60, 80, 90],
+        backgroundColor: [
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 206, 86, 0.2)"
+        ],
+        borderColor: [
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(255, 206, 86, 1)"
+        ],
+        borderWidth: 1
+      }
+    ]
+  };
+
+const languageChart = new Chart(document.getElementById("language-chart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Python", "JavaScript", "C", "SQL", "HTML/CSS"],
+        datasets: [{
+            label: "Skills",
+            data: [90, 85, 80, 75, 70],
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)"
+            ],
+            borderColor: [
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)"
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+const technologyChart = new Chart(document.getElementById("technology-chart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Ruby on Rails", "Angular", "PHP", "WordPress", "Django"],
+        datasets: [{
+            label: "Skills",
+            data: [80, 75, 70, 65, 60],
+            backgroundColor: [
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)"
+            ],
+            borderColor: [
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)"
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+const machineLearningChart = new Chart(document.getElementById("ml-chart"), {
+    type: "doughnut",
+    data: {
+        labels: ["OpenAI", "BLOOM", "Fine-tune", "TensorFlow", "PyTorch"],
+        datasets: [{
+            label: "Skills",
+            data: [85, 80, 75, 70, 65],
+            backgroundColor: [
+                "#3e95cd",
+                "#8e5ea2",
+                "#3cba9f",
+                "#e8c3b9",
+                "#c45850"
+            ]
+        }]
+    },
+    options: {
+        legend: {
+            position: "bottom",
+            labels: {
+                fontColor: "#333",
+                fontSize: 14
+            }
+        }
+    }
+});
+</script> -->
+
+<!-- <div class="skills-container">
+  <div class="skill-category">
+    <h3>Programming Languages</h3>
+    <ul>
+      <li>
+        <p class="skill-name">Python</p>
+        <div class="skill-level" data-level="80"></div>
+      </li>
+      <li>
+        <p class="skill-name">JavaScript</p>
+        <div class="skill-level" data-level="70"></div>
+      </li>
+    </ul>
+  </div>
+  <div class="skill-category">
+    <h3>Web Technologies</h3>
+    <ul>
+      <li>
+        <p class="skill-name">Ruby on Rails</p>
+        <div class="skill-level" data-level="65"></div>
+      </li>
+      <li>
+        <p class="skill-name">Angular</p>
+        <div class="skill-level" data-level="75"></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skill-category {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  margin-bottom: 5px;
+}
+
+.skill-level {
+  height: 15px;
+  width: 100%;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+</style>
+
+<script>
+const skillLevels = document.querySelectorAll('.skill-level');
+
+skillLevels.forEach(level => {
+  const levelPercentage = level.dataset.level;
+  level.style.width = `${levelPercentage}%`;
+  level.style.backgroundColor = 'blue';
+});
+</script>
+ -->
