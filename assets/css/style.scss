@@ -67,8 +67,8 @@ a:has(.fa) {
 	display: flex;
 }
 
-.study-job div span:nth-of-type(1) {flex-basis: 66%;}
-.study-job div span:nth-of-type(2) {flex-basis: 34%;}
+.study-job div span:nth-of-type(1) {flex-basis: 70%;}
+.study-job div span:nth-of-type(2) {flex-basis: 30%;}
 
 .study-job div span:first-of-type {
 	text-align: right;
@@ -144,6 +144,7 @@ a:has(.fa) {
 
 
 /* Useless */
+
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
