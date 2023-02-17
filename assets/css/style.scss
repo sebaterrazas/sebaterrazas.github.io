@@ -63,6 +63,8 @@ a:has(.fa) {
     color: black;
 }
 
+// Header
+
 .study-job div {
 	display: flex;
 }
@@ -77,15 +79,6 @@ a:has(.fa) {
 
 .study-job div span:last-of-type {
 	padding-left: 5px;
-}
-
-.prettyprint {
-    font-size: 0.8em;
-    height: 140px;
-}
-
-.typed-cursor {
-    color: white;
 }
 
 .index {
@@ -138,9 +131,58 @@ a:has(.fa) {
     -2px -1px 0 var(--title-color);
 }
 
+// Section
+
+.prettyprint {
+    font-size: 0.8em;
+    height: 140px;
+}
+
+.typed-cursor {
+    color: white;
+}
+
 .tabcontent {
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
 
 
 /* Useless */
