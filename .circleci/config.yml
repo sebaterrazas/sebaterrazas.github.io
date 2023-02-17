@@ -1,43 +1,30 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  node: circleci/node@5.0.0
-  deploy: circleci/github-cli@2.2.0
+  ruby: circleci/ruby@1.4.0
 
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
-      - image: circleci/node:14
-
-    working_directory: ~/repo
-
+      - image: cimg/ruby:3.1.0
+    executor: ruby/default
     steps:
       - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
 
-      # Install dependencies
-      - run: npm install
-
-      # Build website
-      - run: npm run build
-
-  deploy:
-    docker:
-      - image: circleci/python:3.8.1
-
-    environment:
-      GITHUB_TOKEN: ${GITHUB_TOKEN}
-
-    steps:
-      - checkout
-
-      # Install gh-pages and dependencies
-      - run: pip install ghp-import
-
-      # Deploy website to GitHub Pages
-      - run: ghp-import -n -p -f ./build
-
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: 2
-  build:
+  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
