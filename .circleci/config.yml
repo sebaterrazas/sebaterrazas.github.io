@@ -40,13 +40,10 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - node/build:
-          filters:
-            branches:
-              only: main
+      - build
       - deploy:
           requires:
-            - node/build
+            - build
           filters:
             branches:
               only: main
