@@ -22,8 +22,10 @@ title: Sebastián Terrazas
 email: sebaterrazas@uc.cl
 about_me: "Hello World!"
 current_job_and_study: >- # this means to ignore newlines until "baseurl:"
-  <div class="study-job"><div><span>B.S.E in CS & EE</span> @ <span><a href="https://www.uc.cl"> UC </a></span></div>
-  <div><span>Software & AI Engineer</span> @ <span><a href="https://edutecno.cl/"> Edutecno </a></span></div></div>
+  <div class="study-job">
+    <div><span>B.S.E in CS & EE</span> @ <span><a href="https://www.uc.cl"> UC </a></span></div>
+    <div><span>Software & AI Engineer</span> @ <span><a href="https://edutecno.cl/"> Edutecno </a></span></div>
+  </div>
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 instagram_username: seba_terrazas
