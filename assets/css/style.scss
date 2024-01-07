@@ -4,14 +4,14 @@
 @import "{{ site.theme }}";
 
 :root {
-    --primary-color: lightsteelblue;
-    --secondary-color: midnightblue;
+    --primary-color: rgb(15,15,15);
+    --secondary-color: lightsteelblue;
     --tertiary-color: rgb(206,226,252);
     --white: #ffffff;
-    --title-color: black;
+    --title-color: white;
 	--subtitle-color: rgb(68,79,196);
-    --text-color: rgb(69,69,69);
-  }
+    --text-color: rgb(184, 184, 184);
+}
 
 body {
     background-color: var(--primary-color);
@@ -46,6 +46,17 @@ a {
     color: var(--secondary-color) !important;
 }
 
+a:hover {
+	font-weight: normal;
+	color: var(--title-color) !important;
+}
+
+.horizontal {
+	display: flex !important;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 .logo {
     border-radius: 10px;
 }
@@ -60,7 +71,7 @@ a:has(.fa) {
 }
 
 .fa:hover {
-    color: black;
+    color: white;
 }
 
 // Header
@@ -91,17 +102,22 @@ a:has(.fa) {
 .index .tablinks {
     text-align: center;
     margin-bottom: -25px;
-    color: var(--title-color);
+    color: var(--text-color);
 }
 
 .index .tablinks:hover {
-    font-size: 110%;
+    font-size: 100%;
     cursor: pointer;
-    background-color: var(--tertiary-color);
+	color: var(--primary-color);
+    background-color: var(--text-color);
     border-radius: 10px;
 }
 
-.index .tablinks.active, .highlighted-text {
+.index .tablinks.active {
+	color: var(--title-color);
+}
+
+/* .index .tablinks.active, .highlighted-text {
 	margin-left: 1px;
 	margin-right: 1px;
     color: var(--tertiary-color);
@@ -129,7 +145,7 @@ a:has(.fa) {
     -2px 1px 0 var(--title-color),
     2px -1px 0 var(--title-color),
     -2px -1px 0 var(--title-color);
-}
+} */
 
 // Section
 
@@ -168,22 +184,97 @@ a:has(.fa) {
 	width: 40%; /* Could be more or less, depending on screen size */
   }
   
-  /* The Close Button */
-  .close {
+/* The Close Button */
+.close {
 	color: #aaa;
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.project {
+	margin-top: 10%;
+}
+  
+.iphone {
+	position: relative;
+	width: 155px;
+	height: 320px;
+	margin-right: 15px;
+	margin-left: 15px;
+	display: flex;
+	justify-content: center;
+}
+  
+.iphone::after {
+	content: "";
+	background-image: url('/assets/img/iphone.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	opacity: 1; /* Adjust as needed */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	position: absolute;
+	pointer-events: none;
   }
   
+.iphone-video {
+	position: relative;
+	width: 90%;
+  	height: 100%;
+	border-radius: 12%;
+	z-index: 1;
+}
 
+.computer {
+	position: relative;
+	width: 500px;
+	height: 270px;
+	margin-right: 15px;
+	margin-left: 15px;
+	display: flex;
+	justify-content: center;
+}
+  
+.computer::after {
+	content: "";
+	background-image: url('/assets/img/computer.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	opacity: 1; /* Adjust as needed */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	position: absolute;
+	pointer-events: none;
+  }
+  
+.computer-video {
+	width: 85%;
+  	height: 90%;
+	border-radius: 12%;
+	z-index: 1;
+}
+
+.description {
+	flex: 1;
+}
+
+.skill {
+	color: var(--title-color);
+}
 
 /* Useless */
 

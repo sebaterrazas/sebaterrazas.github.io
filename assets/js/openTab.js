@@ -19,4 +19,4 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-document.getElementById("About Me Button").click();
+document.getElementById("Portfolio Button").click();
